@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ================================================
+   NEO-BRUTALIST DESIGN SYSTEM
+   Enterprise Knowledge Assistant
+   ================================================ */
+
+/* --- Design Tokens --- */
+@theme {
+  --color-bg: #fafaf5;
+  --color-black: #1a1a1a;
+  --color-white: #ffffff;
+  --color-yellow: #fde047;
+  --color-yellow-dark: #eab308;
+  --color-pink: #fda4af;
+  --color-pink-dark: #f43f5e;
+  --color-cyan: #67e8f9;
+  --color-cyan-dark: #06b6d4;
+  --color-green: #86efac;
+  --color-green-dark: #22c55e;
+
+  /* Brutalist border & shadow tokens */
+  --border-brutal: 3px solid #1a1a1a;
+  --shadow-brutal: 4px 4px 0 0 #1a1a1a;
+  --shadow-brutal-lg: 6px 6px 0 0 #1a1a1a;
+  --shadow-brutal-sm: 3px 3px 0 0 #1a1a1a;
+  --radius-brutal: 12px;
+  --radius-brutal-lg: 16px;
+
+  /* Font families mapped to CSS variables from layout.tsx */
+  --font-sans: var(--font-space-grotesk), "Space Grotesk", system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), "Space Mono", ui-monospace, monospace;
+  --font-caveat: var(--font-caveat), "Caveat", cursive;
+}
+
+/* --- Base Styles --- */
+body {
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle, #d4d4d4 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--color-black);
+}
+
+/* --- Custom Animations --- */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(3deg);
+  }
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+@utility animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+@utility animate-dot-bounce {
+  animation: dot-bounce 1.4s infinite ease-in-out both;
+}
+
+@utility animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* --- Font Utilities --- */
+@utility font-handwritten {
+  font-family: var(--font-caveat);
+}
+
+/* --- Brutalist Component Utilities --- */
+@utility brutal-border {
+  border: 3px solid var(--color-black);
+}
+
+@utility brutal-shadow {
+  box-shadow: 4px 4px 0 0 var(--color-black);
+}
+
+@utility brutal-shadow-lg {
+  box-shadow: 6px 6px 0 0 var(--color-black);
+}
+
+@utility brutal-shadow-sm {
+  box-shadow: 3px 3px 0 0 var(--color-black);
+}
+
+@utility brutal-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 0 var(--color-black);
+  }
+  &:active {
+    transform: translateY(0);
+    box-shadow: 2px 2px 0 0 var(--color-black);
+  }
+}
+
+/* --- Scrollbar — Chunky Brutalist --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+  border-left: 2px solid var(--color-black);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-yellow);
+  border: 2px solid var(--color-black);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-yellow-dark);
+}
+
+/* --- Selection Color --- */
+::selection {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
