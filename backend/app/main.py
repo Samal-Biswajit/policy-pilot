@@ -43,7 +43,7 @@ app = FastAPI(
 # Allow the Next.js frontend to call the API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "https://policy-pilot-flax.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
