@@ -14,6 +14,12 @@ GENERATION_MODEL = "gemini-2.5-flash"
 
 class RetrievalService:
     def __init__(self):
+        self.chroma_client = None
+        self.collection = None
+        self.vector_db_status = "disconnected"
+        self.gemini_status = "disconnected"
+
+    def initialize(self):
         try:
             self.chroma_client = chromadb.PersistentClient(path=settings.CHROMA_DB_DIR)
             self.collection = self.chroma_client.get_collection(name="knowledge_base")
