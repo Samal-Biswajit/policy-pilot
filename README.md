@@ -56,7 +56,7 @@ policy-pilot/
 <h3>Landing Page</h3>
 
 <p align="center">
-  <img src="reports/screenshots/landing.png" width="900">
+  <img src="reports/screenshots/Landing.png" width="900">
 </p>
 
 <h3>Answer with Source Badges</h3>
